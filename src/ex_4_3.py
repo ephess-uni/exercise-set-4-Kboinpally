@@ -19,7 +19,11 @@ def time_between_shutdowns(logfile):
     """
     Your docstring here.  Replace the pass keyword below with your implementation.
     """
-    pass
+    shutdowns = get_shutdown_events(logfile)
+    first = logstamp_to_datetime(shutdowns[0].split()[1])
+    last = logstamp_to_datetime(shutdowns[-1].split()[1])
+    difference_time = last-first
+    return difference_time
 
 
 # >>>> The code below will call your function and print the results
